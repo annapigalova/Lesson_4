@@ -4,10 +4,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-while (true){
+
 		int k = processInputSize(sc);
 		arrayFraction(k, sc);
-}
+
 	}
 
 	private static int processInputSize(Scanner sc) {
@@ -40,8 +40,7 @@ while (true){
 		int numerator = 0;
 		int denominator = 0;
 
-		String[] arrayFraction = new String[k];
-		Fraction fr = new Fraction();
+		Fraction[] arrayFraction = new Fraction[k];
 
 		for (int i = 0; i < arrayFraction.length; i++) {
 			while (!isInputNumOK) {
@@ -50,7 +49,6 @@ while (true){
 
 				if (sc.hasNextInt()) {
 					numerator = sc.nextInt();
-					fr.setNumerator(numerator);
 					isInputNumOK = true;
 
 				} else {
@@ -64,7 +62,6 @@ while (true){
 					denominator = sc.nextInt();
 					if (denominator != 0) {
 						isInputDenOK = true;
-						fr.setDenominator(denominator);
 					} else {
 						System.out.println("Enter correct number");
 					}
@@ -75,7 +72,7 @@ while (true){
 
 			}
 
-			arrayFraction[i] = fr.setFraction(numerator, denominator);
+			arrayFraction[i] = new Fraction(numerator, denominator);
 
 			isInputNumOK = false;
 			isInputDenOK = false;

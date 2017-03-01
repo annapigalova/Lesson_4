@@ -3,36 +3,22 @@ public class Fraction {
 
 	private int denominator;
 	private int numerator;
-	private String fraction;
 
+	Fraction(int numerator, int denominator) {
+		this.numerator = numerator;
+		this.denominator = denominator;
+		reduceFraction();
+	}
 
 	public int getDenominator() {
 		return denominator;
-	}
-
-	public void setDenominator(int denominator) {
-		this.denominator = denominator;
 	}
 
 	public int getNumerator() {
 		return numerator;
 	}
 
-	public void setNumerator(int numerator) {
-		this.numerator = numerator;
-	}
-
-	public String getFraction() {
-		return fraction;
-	}
-
-	public String setFraction(int numerator, int denominator) {
-		
-		this.fraction = reduceFraction();
-		return this.fraction;
-	}
-
-	private String reduceFraction() {
+	private void reduceFraction() {
 
 		int nod;
 
@@ -48,6 +34,11 @@ public class Fraction {
 		}
 		numerator = numerator / nod;
 		denominator = denominator / nod;
+
+	}
+
+	@Override
+	public String toString() {
 		return numerator + "/" + denominator;
 
 	}
