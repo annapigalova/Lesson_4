@@ -40,48 +40,48 @@ public class Abiturient {
 		this.isBrsmMember = isBrsmMember;
 	}
 
-	public void show() {
-		System.out.println("First Name: " + getFirstName());
-		System.out.println("Last Name: " + getLastName());
-		System.out.println("Average Mark: " + getAvgRate());
-		System.out.println(" ");
+	@Override
+	public String toString() {
 
+		return "First Name: " + getFirstName() + System.lineSeparator() + "Last Name: " + getLastName()
+				+ System.lineSeparator() + "Average Mark: " + getAvgRate() + System.lineSeparator();
 	}
 
 	public double getAvgRate() {
 
-		double avgRate;
+		double avgRate = 0;
 		int sumMark = 0;
-
-		for (int i = 0; i < this.mark.size(); i++) {
-			sumMark += this.mark.get(i);
+		if (mark.size() != 0) {
+			for (int i = 0; i < mark.size(); i++) {
+				sumMark += mark.get(i);
+			}
+			avgRate = sumMark / (double) mark.size();
 		}
-		avgRate = sumMark / (double) this.mark.size();
 		return avgRate;
 
 	}
 
-	public int getmaxRate() {
+	public int getMaxRate() {
 		int maxRate = 0;
 
-		for (int i = 0; i < this.mark.size(); i++) {
-			if (this.mark.get(i) > maxRate) {
-				maxRate = this.mark.get(i);
+		for (int i = 0; i < mark.size(); i++) {
+			if (mark.get(i) > maxRate) {
+				maxRate = mark.get(i);
 			}
 		}
 
 		return maxRate;
 	}
 
-	public int getminRate() {
+	public int getMinRate() {
 		int minRate = 0;
 
-		for (int i = 0; i < this.mark.size(); i++) {
+		for (int i = 0; i < mark.size(); i++) {
 			if (i == 0) {
-				minRate = this.mark.get(i);
+				minRate = mark.get(i);
 			}
-			if (this.mark.get(i) < minRate) {
-				minRate = this.mark.get(i);
+			if (mark.get(i) < minRate) {
+				minRate = mark.get(i);
 			}
 		}
 
@@ -99,7 +99,7 @@ public class Abiturient {
 			if (avgRateCompare == 0) {
 				int isBrsmMemberCompare = Boolean.compare(s2.getIsBrsmMember(), s1.getIsBrsmMember());
 				if (isBrsmMemberCompare == 0) {
-					int maxMark = Integer.compare(s2.getmaxRate(), s1.getmaxRate());
+					int maxMark = Integer.compare(s2.getMaxRate(), s1.getMaxRate());
 					return maxMark;
 				} else {
 					return isBrsmMemberCompare;
@@ -107,7 +107,7 @@ public class Abiturient {
 			} else {
 				return avgRateCompare;
 			}
-		
+
 		}
 	};
 

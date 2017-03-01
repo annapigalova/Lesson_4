@@ -3,10 +3,9 @@ import java.util.Collections;
 
 public class Main {
 	private static final int NUM_PLACE = 3;
-	
+
 	public static void main(String[] args) {
-		ArrayList<Abiturient> abiturientList = new ArrayList<Abiturient>();
-		abiturientList = initAbiturient();
+		ArrayList<Abiturient> abiturientList = initAbiturient();
 		sortStudentList(abiturientList);
 	}
 
@@ -133,18 +132,15 @@ public class Main {
 	private static void sortStudentList(ArrayList<Abiturient> abiturientList) {
 
 		Collections.sort(abiturientList, Abiturient.sortAvgRate);
-		
-		int i = 0;
-	
-		for (Abiturient abt : abiturientList) {
-			if (i < NUM_PLACE) {
-				System.out.println(i + 1);
-				abt.show();
 
+		for (int j = 0; j < abiturientList.size(); j++) {
+			if (j < NUM_PLACE) {
+				System.out.println(j + 1);
+				System.out.print(abiturientList.get(j));
+
+			} else {
+				break;
 			}
-			i++;
 		}
-
 	}
-
 }
