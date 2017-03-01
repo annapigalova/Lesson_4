@@ -23,7 +23,6 @@ public class Group {
 
 	}
 
-
 	public double avgGroupMark() {
 
 		int sumMark = 0;
@@ -35,17 +34,17 @@ public class Group {
 				sumMark += st.getMark().get(i);
 				cnt++;
 			}
-			
+
 		}
 		double avgGroupMark = (double) sumMark / cnt;
 
 		return avgGroupMark;
 	}
-	public void show() {
 
-		System.out.println("Group Num: " + getGroupNumber());
-		System.out.println("Average Group Mark: " + avgGroupMark());
-		System.out.println("");
+	@Override
+	public String toString() {
 
+		return "Group Num: " + getGroupNumber() + System.lineSeparator() + "Average Group Mark: " + avgGroupMark()
+				+ System.lineSeparator();
 	}
 }

@@ -6,11 +6,10 @@ public class Main {
 
 		ArrayList<Student> studentsList = initStudents();
 		ArrayList<Group> groupList = initGroups(studentsList);
-		
+
 		showAvgGroupMark(groupList);
 		calcStatistics(studentsList);
 		showDetailInfo(studentsList);
-		
 
 	}
 
@@ -97,14 +96,13 @@ public class Main {
 				group2.addStudent(studentsList.get(i));
 			}
 		}
-		ArrayList <Group> groupList = new ArrayList <>();
+		ArrayList<Group> groupList = new ArrayList<>();
 		groupList.add(group1);
 		groupList.add(group2);
-		
-		return 	groupList;
+
+		return groupList;
 	}
 
-	
 	public static void showDetailInfo(ArrayList<Student> studentsList) {
 		System.out.println("Detail Information");
 		System.out.println("");
@@ -131,12 +129,12 @@ public class Main {
 		System.out.println("");
 
 	}
-	
-	public static void showAvgGroupMark(ArrayList<Group> groupList){
-		for (Group gp : groupList){
-			
-			gp.show();
+
+	public static void showAvgGroupMark(ArrayList<Group> groupList) {
+		
+		for (int i = 0; i < groupList.size(); i++) {
+			System.out.println(groupList.get(i));
 		}
 	}
-	
+
 }

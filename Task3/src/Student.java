@@ -57,39 +57,38 @@ public class Student {
 
 	public double getAvgRate() {
 
-		double avgRate;
+		double avgRate = 0;
 		int sumMark = 0;
 
-		for (int i = 0; i < this.mark.size(); i++) {
-			sumMark += this.mark.get(i);
+		if (mark.size() != 0) {
+			for (int i = 0; i < mark.size(); i++) {
+				sumMark += mark.get(i);
+			}
+
+			avgRate = sumMark / (double) mark.size();
 		}
-		avgRate = sumMark / (double) this.mark.size();
+
 		return avgRate;
 
 	}
 
 	public boolean isStudentNerd() {
-
-		boolean isStudentNerd = false;
-		if (getAvgRate() == 5) {
-			isStudentNerd = true;
+		for (int i = 0; i < mark.size(); i++) {
+			if (mark.get(i) != 5) {
+				return false;
+			}
 		}
-		return isStudentNerd;
+		return true;
 	}
 
 	public boolean isStudentLoser() {
 
-		boolean isStudentLoser = false;
-
-		for (int i = 0; i < this.mark.size(); i++) {
-			if (this.mark.get(i) == 2) {
-				isStudentLoser = true;
-				break;
+		for (int i = 0; i < mark.size(); i++) {
+			if (mark.get(i) == 2) {
+				return true;
 			}
 		}
-
-		return isStudentLoser;
-
+		return false;
 	}
 
 }
