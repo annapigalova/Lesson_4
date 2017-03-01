@@ -5,10 +5,13 @@ public class Main {
 	public static void main(String[] args) {
 
 		ArrayList<Student> studentsList = initStudents();
+		ArrayList<Group> groupList = initGroups(studentsList);
 		
+		showAvgGroupMark(groupList);
 		calcStatistics(studentsList);
 		showDetailInfo(studentsList);
 		
+
 	}
 
 	public static ArrayList<Student> initStudents() {
@@ -79,6 +82,29 @@ public class Main {
 
 	}
 
+	public static ArrayList<Group> initGroups(ArrayList<Student> studentsList) {
+
+		Group group1 = new Group();
+		group1.setGroupNumber(1);
+
+		Group group2 = new Group();
+		group2.setGroupNumber(2);
+
+		for (int i = 0; i < studentsList.size(); i++) {
+			if (i <= 1) {
+				group1.addStudent(studentsList.get(i));
+			} else {
+				group2.addStudent(studentsList.get(i));
+			}
+		}
+		ArrayList <Group> groupList = new ArrayList <>();
+		groupList.add(group1);
+		groupList.add(group2);
+		
+		return 	groupList;
+	}
+
+	
 	public static void showDetailInfo(ArrayList<Student> studentsList) {
 		System.out.println("Detail Information");
 		System.out.println("");
@@ -98,11 +124,19 @@ public class Main {
 			if (st.isStudentLoser() == true) {
 				numberLoser += 1;
 			}
-			
+
 		}
 		System.out.println("Number of Nerds:  " + numberNeird);
 		System.out.println("Number of Losers: " + numberLoser);
 		System.out.println("");
 
 	}
+	
+	public static void showAvgGroupMark(ArrayList<Group> groupList){
+		for (Group gp : groupList){
+			
+			gp.show();
+		}
+	}
+	
 }
